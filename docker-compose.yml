@@ -1,0 +1,16 @@
+version: '3'
+services:
+  flowtron:
+    container_name: flowtron0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes: 
+      - .:/root/flowtron
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

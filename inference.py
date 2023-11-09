@@ -14,8 +14,8 @@
 #  limitations under the License.
 #
 ###############################################################################
-import matplotlib
-matplotlib.use("Agg")
+# import matplotlib
+# matplotlib.use("Agg")
 import matplotlib.pylab as plt
 
 import os
@@ -64,7 +64,6 @@ def infer(flowtron_path, waveglow_path, output_dir, text, speaker_id, n_frames,
     text = trainset.get_text(text).cuda()
     speaker_vecs = speaker_vecs[None]
     text = text[None]
-
     with torch.no_grad():
         residual = torch.cuda.FloatTensor(1, 80, n_frames).normal_() * sigma
         mels, attentions = model.infer(
@@ -73,8 +72,8 @@ def infer(flowtron_path, waveglow_path, output_dir, text, speaker_id, n_frames,
     for k in range(len(attentions)):
         attention = torch.cat(attentions[k]).cpu().numpy()
         fig, axes = plt.subplots(1, 2, figsize=(16, 4))
-        axes[0].imshow(mels[0].cpu().numpy(), origin='bottom', aspect='auto')
-        axes[1].imshow(attention[:, 0].transpose(), origin='bottom', aspect='auto')
+        axes[0].imshow(mels[0].cpu().numpy(), aspect='auto')
+        axes[1].imshow(attention[:, 0].transpose(), aspect='auto')
         fig.savefig(os.path.join(output_dir, 'sid{}_sigma{}_attnlayer{}.png'.format(speaker_id, sigma, k)))
         plt.close("all")
 

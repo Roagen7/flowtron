@@ -1,8 +1,9 @@
 matplotlib==3.3.2
-numpy==1.19.2
+numpy==1.19.3
 inflect==4.1.0
 librosa==0.6.3
-scipy==1.5.2
+scipy==1.5.3
 Unidecode==1.0.22
 pillow
 tensorboardX
+torch==1.8.1

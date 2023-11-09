@@ -60,7 +60,9 @@ Dataset dependent layers can be [ignored]
 
 ## Inference demo
 Disable the attention prior and run inference:
-1. `python inference.py -c config.json -f models/flowtron_ljs.pt -w models/waveglow_256channels_v4.pt -t "It is well know that deep generative models have a rich latent space!" -i 0`
+1. `python inference.py -c config.json -f models/flowtron_ljs.pt -w models/waveglow_256channels_ljs_v3.pt -t "Peter Piper picked a peck of pickled peppers.A peck of pickled peppers Peter Piper picked.
+If Peter Piper picked a peck of pickled peppers,
+Where’s the peck of pickled peppers Peter Piper picked?" -i 0`
 
 ## Related repos
 [WaveGlow](https://github.com/NVIDIA/WaveGlow) Faster than real time Flow-based
